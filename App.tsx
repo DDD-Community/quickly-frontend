@@ -2,14 +2,9 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 import store from './src/store';
+import AppInner from './AppInner';
 
-import { SafeAreaView } from 'react-native';
-
-const AppInner = () => {
-  return <SafeAreaView>AppInner</SafeAreaView>;
-};
-
-const App = () => {
+function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
@@ -17,6 +12,6 @@ const App = () => {
       </NavigationContainer>
     </Provider>
   );
-};
+}
 
 export default App;
