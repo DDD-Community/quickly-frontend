@@ -6016,6 +6016,11 @@ react-native-encrypted-storage@^4.0.2:
   resolved "https://registry.yarnpkg.com/react-native-encrypted-storage/-/react-native-encrypted-storage-4.0.2.tgz#c7d59b1d3ff2f80d572be3e85aaab3fdee16744a"
   integrity sha512-vneDkHGDuTvLQjUBztqb2YI8QoH1zxdJonPGTS+g57lfJZff9fAjoLSSb6NgMBebpXFcK3I3sEresGyL+3AArw==
 
+react-native-error-boundary@^1.1.13:
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/react-native-error-boundary/-/react-native-error-boundary-1.1.13.tgz#906bd176ed5fc6b70a88b25138c6853801c5a1af"
+  integrity sha512-nSBk+UsaPcylahyQ+ytrdBxXiMBnbajhVMD9jK51XLm613A2dxPqh9eJ+GdUnoUfDNpOHNR6HWQyD6wRFDN6zg==
+
 react-native-flipper@^0.145.0:
   version "0.145.0"
   resolved "https://registry.yarnpkg.com/react-native-flipper/-/react-native-flipper-0.145.0.tgz#4f94552e286c4fd0e0493fca96141b41877ee233"
