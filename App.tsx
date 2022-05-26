@@ -8,8 +8,15 @@ import Indicator from '~/components/Indicator';
 import Error from '~/components/Error';
 
 const navigationRef: any = React.createRef();
-export const navigate = (name: any, params: any) => {
-  navigationRef.current?.navigate(name, params);
+export const navigate = () => {
+  return {
+    navigate: (name: any, params: any) => {
+      navigationRef.current?.navigate(name, params);
+    },
+    replace: (name: any, params: any) => {
+      navigationRef.current?.replace(name, params);
+    },
+  };
 };
 
 function App() {

@@ -1,20 +1,24 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useCallback, useEffect } from 'react';
 import { SafeAreaView, Text } from 'react-native';
-import { fetch } from '~/utils/http';
+import { useAppDispatch } from '@store/index';
 import s from './styles';
+import { UserService } from '~/services/user';
+import { useAppSelector } from '~/store/reducer';
 const Home: FC = ({}) => {
-  const getData = () =>
-    fetch('people/1/', {
-      body: '',
-      method: 'GET',
-    });
+  const dispatch = useAppDispatch();
+  const { user } = useAppSelector(state => state.user);
+  const getUser = useCallback(
+    () => dispatch(UserService.getUser('1')),
+    [dispatch],
+  );
 
   useEffect(() => {
-    getData();
-  }, []);
+    getUser();
+  }, [getUser]);
   return (
     <SafeAreaView style={s.container}>
       <Text>HOME</Text>
+      <Text>{user?.name}</Text>
     </SafeAreaView>
   );
 };

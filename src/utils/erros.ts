@@ -30,7 +30,7 @@ export default class HandleError {
 
   // 리다이렉트 처리
   redirectTo(path: string) {
-    this.navi(path);
+    this.navi.replace(path);
   }
 
   // 각각의 에러 처리

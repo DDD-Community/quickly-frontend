@@ -68,8 +68,7 @@ export const fetch = async (
 
   try {
     const res = await http(req);
-    console.log(res);
-    return res.data;
+    return res;
   } catch (error: any) {
     throw new Error(error);
   }

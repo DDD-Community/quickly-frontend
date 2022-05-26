@@ -1,10 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { UserService } from '~/services/user';
 
 const initialState = {
   name: '',
   email: 'dd',
   accessToken: '',
+  user: {
+    name: '',
+  },
 };
+
 const userSlice = createSlice({
   name: 'user',
   initialState,
@@ -16,7 +21,19 @@ const userSlice = createSlice({
     },
   },
   // 비동기 상태 쪽
-  extraReducers: builder => {},
+  extraReducers: builder => {
+    builder
+      .addCase(UserService.getUser.pending, (state, action) => {
+        console.log('pending');
+      })
+      .addCase(UserService.getUser.fulfilled, (state, action) => {
+        console.log('fulfilled', state, action);
+        state.user = action.payload;
+      })
+      .addCase(UserService.getUser.rejected, (state, action) => {
+        console.log('rejected');
+      });
+  },
 });
 
 export default userSlice;
