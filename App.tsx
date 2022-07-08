@@ -6,6 +6,7 @@ import AppInner from './AppInner';
 import AsyncBoundary from '~/components/AsyncBoundary';
 import Indicator from '~/components/Indicator';
 import Error from '~/components/Error';
+import { NativeBaseProvider } from 'native-base';
 
 const navigationRef: any = React.createRef();
 export const navigate = () => {
@@ -22,11 +23,16 @@ export const navigate = () => {
 function App() {
   return (
     <Provider store={store}>
-      <NavigationContainer ref={navigationRef}>
-        <AsyncBoundary pendingFallback={<Indicator />} rejectedFallback={Error}>
-          <AppInner />
-        </AsyncBoundary>
-      </NavigationContainer>
+      <NativeBaseProvider>
+        <NavigationContainer ref={navigationRef}>
+          <AsyncBoundary
+            pendingFallback={<Indicator />}
+            rejectedFallback={Error}
+          >
+            <AppInner />
+          </AsyncBoundary>
+        </NavigationContainer>
+      </NativeBaseProvider>
     </Provider>
   );
 }
