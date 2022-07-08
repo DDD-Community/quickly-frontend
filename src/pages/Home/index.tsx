@@ -15,6 +15,7 @@ import {
   Subhead1,
   Subhead2,
 } from '@components/lds/typography';
+import { BaseButton } from '@components/lds/BaseButton';
 
 const Home: FC = ({}) => {
   const dispatch = useAppDispatch();
@@ -39,6 +40,8 @@ const Home: FC = ({}) => {
       <Body2>세탁을 잘하자</Body2>
       <Caption1>세탁을 잘하자</Caption1>
       <Caption2>세탁을 잘하자</Caption2>
+
+      <BaseButton>버튼</BaseButton>
     </SafeAreaView>
   );
 };

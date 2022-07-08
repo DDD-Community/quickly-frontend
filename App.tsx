@@ -23,16 +23,13 @@ export const navigate = () => {
 function App() {
   return (
     <Provider store={store}>
-      <NativeBaseProvider>
-        <NavigationContainer ref={navigationRef}>
-          <AsyncBoundary
-            pendingFallback={<Indicator />}
-            rejectedFallback={Error}
-          >
+      <NavigationContainer ref={navigationRef}>
+        <AsyncBoundary pendingFallback={<Indicator />} rejectedFallback={Error}>
+          <NativeBaseProvider>
             <AppInner />
-          </AsyncBoundary>
-        </NavigationContainer>
-      </NativeBaseProvider>
+          </NativeBaseProvider>
+        </AsyncBoundary>
+      </NavigationContainer>
     </Provider>
   );
 }
