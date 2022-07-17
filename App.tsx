@@ -21,8 +21,8 @@ export const navigate = () => {
 
 function App() {
   return (
-    <SafeAreaProvider>
-      <Provider store={store}>
+    <Provider store={store}>
+      <SafeAreaProvider>
         <NavigationContainer ref={navigationRef}>
           <AsyncBoundary
             pendingFallback={<Indicator />}
@@ -31,8 +31,8 @@ function App() {
             <AppInner />
           </AsyncBoundary>
         </NavigationContainer>
-      </Provider>
-    </SafeAreaProvider>
+      </SafeAreaProvider>
+    </Provider>
   );
 }
 

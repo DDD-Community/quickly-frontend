@@ -1,5 +1,4 @@
 import React, { FC, useCallback, useEffect } from 'react';
-import { SafeAreaView } from 'react-native';
 import { useAppDispatch } from '@store/index';
 import s from './styles';
 import { UserService } from '~/services/user';
@@ -15,6 +14,7 @@ import {
   Subhead1,
   Subhead2,
 } from '@components/lds/typography';
+import AppLayout from '~/components/AppLayout';
 
 const Home: FC = ({}) => {
   const dispatch = useAppDispatch();
@@ -29,7 +29,7 @@ const Home: FC = ({}) => {
   }, [getUser]);
 
   return (
-    <SafeAreaView style={s.container}>
+    <AppLayout>
       <Headline1>세탁을 잘하자</Headline1>
       <Headline2>세탁을 잘하자</Headline2>
       <Headline3>세탁을 잘하자</Headline3>
@@ -39,7 +39,7 @@ const Home: FC = ({}) => {
       <Body2>세탁을 잘하자</Body2>
       <Caption1>세탁을 잘하자</Caption1>
       <Caption2>세탁을 잘하자</Caption2>
-    </SafeAreaView>
+    </AppLayout>
   );
 };
 

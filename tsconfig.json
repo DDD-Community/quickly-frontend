@@ -21,6 +21,7 @@
       "@pages/*": ["pages/*"],
       "@slices/*": ["slices/*"],
       "@store/*": ["store/*"],
+      "@styles/*": ["styles/*"],
       "@utils/*": ["utils/*"],
     },
     "types": ["jest"],
