@@ -7,6 +7,8 @@ import AsyncBoundary from '~/components/AsyncBoundary';
 import Indicator from '~/components/Indicator';
 import Error from '~/components/Error';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { NativeBaseProvider } from 'native-base';
+
 const navigationRef: any = React.createRef();
 export const navigate = () => {
   return {
@@ -24,11 +26,10 @@ function App() {
     <Provider store={store}>
       <SafeAreaProvider>
         <NavigationContainer ref={navigationRef}>
-          <AsyncBoundary
-            pendingFallback={<Indicator />}
-            rejectedFallback={Error}
-          >
-            <AppInner />
+          <AsyncBoundary pendingFallback={<Indicator />} rejectedFallback={Error}>
+            <NativeBaseProvider>
+              <AppInner />
+            </NativeBaseProvider>
           </AsyncBoundary>
         </NavigationContainer>
       </SafeAreaProvider>
