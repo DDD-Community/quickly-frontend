@@ -26,7 +26,10 @@ function App() {
     <Provider store={store}>
       <SafeAreaProvider>
         <NavigationContainer ref={navigationRef}>
-          <AsyncBoundary pendingFallback={<Indicator />} rejectedFallback={Error}>
+          <AsyncBoundary
+            pendingFallback={<Indicator />}
+            rejectedFallback={Error}
+          >
             <NativeBaseProvider>
               <AppInner />
             </NativeBaseProvider>
