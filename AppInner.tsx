@@ -6,11 +6,20 @@ import { BottomTab, RootStack } from '~/types/navigation';
 import { useSelector } from 'react-redux';
 import { RootState } from '@store/reducer';
 import { HomeScreens, MeScreens } from './AppNavigation';
+import BottomTabBar from '@components/BottomTabBar';
 
 function AppInner() {
   const isLoggedIn = useSelector((state: RootState) => !!state.user.email);
   return isLoggedIn ? (
-    <BottomTab.Navigator>
+    <BottomTab.Navigator
+      tabBar={props => (
+        <BottomTabBar
+          state={props.state}
+          descriptors={props.descriptors}
+          navigation={props.navigation}
+        />
+      )}
+    >
       <BottomTab.Screen
         name="Home"
         component={HomeScreens}
@@ -21,7 +30,7 @@ function AppInner() {
       <BottomTab.Screen
         name="Me"
         component={MeScreens}
-        options={{ title: '내 정보' }}
+        options={{ headerShown: false }}
       />
     </BottomTab.Navigator>
   ) : (
