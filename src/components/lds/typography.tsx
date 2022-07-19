@@ -2,7 +2,7 @@ import { Text, TextStyle } from 'react-native';
 import React, { ReactNode } from 'react';
 
 interface TextProps {
-  children: ReactNode;
+  children: ReactNode | ReactNode[];
   style?: TextStyle;
   weight?: 'Regular' | 'Medium' | 'Bold';
 }

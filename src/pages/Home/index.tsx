@@ -1,47 +1,56 @@
-import React, { FC, useCallback, useEffect } from 'react';
-import { SafeAreaView } from 'react-native';
-import { useAppDispatch } from '@store/index';
+import React, { FC } from 'react';
+import { SafeAreaView, ScrollView } from 'react-native';
 import s from './styles';
-import { UserService } from '~/services/user';
-import { useAppSelector } from '~/store/reducer';
-import {
-  Body1,
-  Body2,
-  Caption1,
-  Caption2,
-  Headline1,
-  Headline2,
-  Headline3,
-  Subhead1,
-  Subhead2,
-} from '@components/lds/typography';
-import { BaseButton } from '@components/lds/BaseButton';
+import { Box, HStack, VStack } from 'native-base';
+import { CategoryBox } from '@components/Home/CategoryBox';
+import { SectionTitle } from '@components/Home/SectionTitle';
+import { TipCard } from '@components/Home/TipCard';
 
 const Home: FC = ({}) => {
-  const dispatch = useAppDispatch();
-  const { user } = useAppSelector(state => state.user);
-  const getUser = useCallback(
-    () => dispatch(UserService.getUser('1')),
-    [dispatch],
-  );
-
-  useEffect(() => {
-    getUser();
-  }, [getUser]);
-
   return (
     <SafeAreaView style={s.container}>
-      <Headline1>세탁을 잘하자</Headline1>
-      <Headline2>세탁을 잘하자</Headline2>
-      <Headline3>세탁을 잘하자</Headline3>
-      <Subhead1>세탁을 잘하자</Subhead1>
-      <Subhead2>세탁을 잘하자</Subhead2>
-      <Body1>세탁을 잘하자</Body1>
-      <Body2>세탁을 잘하자</Body2>
-      <Caption1>세탁을 잘하자</Caption1>
-      <Caption2>세탁을 잘하자</Caption2>
+      <ScrollView>
+        <VStack>
+          <Box style={{ height: 300, backgroundColor: 'gray' }} />
+          <Box
+            bg="white"
+            style={{
+              height: '100%',
+              borderTopLeftRadius: 20,
+              borderTopRightRadius: 20,
+              paddingTop: 28,
+              paddingHorizontal: 20,
+            }}
+          >
+            <SectionTitle title="세탁방법 찾기" action={() => {}} />
 
-      <BaseButton>버튼</BaseButton>
+            <HStack space="16px" w="100%" mb="32px">
+              <CategoryBox title="상의" image="상의" />
+              <CategoryBox title="하의" image="하의" />
+              <CategoryBox title="신발" image="신발" />
+            </HStack>
+
+            <SectionTitle title="오늘의 세탁 꿀팁" action={() => {}} />
+
+            <ScrollView horizontal>
+              <HStack space="12px">
+                <TipCard
+                  title={<>누런 티셔츠 {'\n'} 하얗게 세탁하기</>}
+                  tagName="표백"
+                />
+                <TipCard
+                  title={<>구김없이 {'\n'} 와이셔츠 보관하기</>}
+                  tagName="보관"
+                />
+                <TipCard
+                  title={<>세제의 종류와 {'\n'} 올바른 사용법</>}
+                  tagName="세탁"
+                />
+              </HStack>
+            </ScrollView>
+          </Box>
+        </VStack>
+      </ScrollView>
     </SafeAreaView>
   );
 };
