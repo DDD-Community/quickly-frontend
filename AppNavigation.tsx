@@ -28,8 +28,8 @@ const buildHeader: buildHeaderProps = {
       />
     ),
   },
-  Setting: {
-    title: '설정',
+  Me: {
+    title: '내 정보',
     left: navigation => (
       <Icon
         name="left"
@@ -46,6 +46,18 @@ const buildHeader: buildHeaderProps = {
         onPress={() => navigation.navigate('Setting')}
       />
     ),
+  },
+  Setting: {
+    title: '설정',
+    left: navigation => (
+      <Icon
+        name="left"
+        size={20}
+        color="#000"
+        onPress={() => navigation.goBack()}
+      />
+    ),
+    right: () => null,
   },
 };
 
