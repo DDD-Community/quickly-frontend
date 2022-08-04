@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React, { ReactElement } from 'react';
 import { Text, View } from 'react-native';
 import s from './styles';
 
-const SignInForm: FC = ({}) => {
+const SignInForm = (): ReactElement => {
   return (
     <View style={s.container}>
       <Text>SignInForm</Text>
