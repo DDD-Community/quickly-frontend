@@ -1,40 +1,29 @@
 import { StyleSheet } from 'react-native';
-import { CoolGaryColor } from '~/styles/foundation-color';
+
+const TAB_HEIGHT = 92;
 
 const style = StyleSheet.create({
   container: {
+    position: 'absolute',
+    bottom: 0,
+    height: TAB_HEIGHT,
+    shadowOffset: {
+      width: 0,
+      height: 0,
+    },
+    shadowOpacity: 0.2,
+  },
+  innerWrapper: {
     flexDirection: 'row',
-    position: 'relative',
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: CoolGaryColor['100'],
-    height: 82,
+    position: 'absolute',
+    top: '15%',
+    alignSelf: 'center',
   },
-  text: {},
-  item: {
+  button: {
     flex: 1,
-    // borderWidth: 1,
-    height: 49,
-    justifyContent: 'center',
     alignItems: 'center',
-  },
-  overlay: {
-    width: 100,
-    height: 50,
-    borderTopRightRadius: 50,
-    borderTopLeftRadius: 50,
-    position: 'absolute',
-    top: -20,
-  },
-  activeItemIcon: {
-    position: 'absolute',
-  },
-  activeItem: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    backgroundColor: '#e8e8e8',
     justifyContent: 'center',
-    alignItems: 'center',
+    marginBottom: 40,
   },
 });
 
