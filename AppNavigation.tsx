@@ -158,6 +158,7 @@ export const MeScreens = () => {
           component={Me}
           options={({ navigation, route }) => ({
             ...extendHeaderOptions({ navigation, route }),
+            headerTransparent: true,
           })}
         />
         <MypageStack.Screen
