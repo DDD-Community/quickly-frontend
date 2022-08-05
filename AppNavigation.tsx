@@ -36,12 +36,12 @@ const buildHeader: buildHeaderProps = {
     ),
   },
   Scan: {
-    title: '라벨 스캔',
+    title: '',
     left: () => null,
     right: navigation => (
       <Icon
         name="close"
-        size={20}
+        size={24}
         color="#000"
         onPress={() => navigation.navigate('Home')}
       />
@@ -131,6 +131,7 @@ export const ScanScreens = () => {
               navigation,
               route,
             }),
+            headerTransparent: true,
           })}
         />
         <ScanStack.Screen

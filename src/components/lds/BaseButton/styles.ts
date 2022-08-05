@@ -7,7 +7,7 @@ const base: StyleProp<ViewStyle> = {
   justifyContent: 'center',
   borderRadius: 8,
   height: 56,
-  marginHorizontal: 16,
+  // marginHorizontal: 16,
   marginVertical: 12,
 };
 
