@@ -1,12 +1,14 @@
-import { Box } from 'native-base';
+import { Box, Center } from 'native-base';
 import React, { ReactElement } from 'react';
 import AppLayout from '~/components/AppLayout';
 import { MyPageScreenNavigationProp } from '~/types/navigation';
 import s from './styles';
-import { Dimensions } from 'react-native';
+import { Dimensions, StatusBar } from 'react-native';
 import CustomeTabView from '~/components/TabView';
 import MyLaundry from '~/components/My/Laundry';
 import MyTip from '~/components/My/Tip';
+import { Subhead1 } from '~/components/lds/typography';
+import GradientWrapper from '~/components/GradientWrapper';
 
 const renderScene = {
   first: () => <MyLaundry />,
@@ -22,13 +24,21 @@ const My = ({
     { key: 'second', title: '마이꿀팁', count: 3 },
   ];
   return (
-    <AppLayout styles={s.container}>
+    <GradientWrapper
+      angle={360}
+      colors={[
+        'rgba(55, 130, 255, 1) 60%',
+        'rgba(105, 178, 255, 1) 100%',
+        'rgba(224, 242, 254, 1) 100%',
+      ]}
+    >
+      <StatusBar translucent backgroundColor={'transparent'} />
+      <Center flex={1}>
+        <Subhead1 style={s.userName}>빨래됴하</Subhead1>
+      </Center>
       <Box
-        position={'absolute'}
-        bottom={0}
-        left={0}
+        flex={2}
         rounded={'2xl'}
-        height={'80%'}
         width={Dimensions.get('window').width}
         backgroundColor="white"
       >
@@ -38,7 +48,7 @@ const My = ({
           tabViews={routes}
         />
       </Box>
-    </AppLayout>
+    </GradientWrapper>
   );
 };
 
