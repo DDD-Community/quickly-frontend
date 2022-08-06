@@ -17,7 +17,7 @@ export type RootStackParamList = {
 export type TabParamList = {
   Home: HomeStackParamList;
   Scan: HomeStackParamList;
-  Me: MypageStackParamList;
+  My: MypageStackParamList;
 };
 
 export type SettingStackParamList = {
@@ -33,7 +33,7 @@ export type ScanStackParamList = SettingStackParamList & {
 };
 
 export type MypageStackParamList = SettingStackParamList & {
-  Me: undefined;
+  My: undefined;
 };
 
 export type SignInScreenNavigationProp = NativeStackScreenProps<
@@ -58,7 +58,7 @@ export type ScanScreenNavigationProp = NativeStackScreenProps<
 
 export type MyPageScreenNavigationProp = NativeStackScreenProps<
   MypageStackParamList,
-  'Me'
+  'My'
 >;
 export type SettingScreenNavigationProp = NativeStackScreenProps<
   SettingStackParamList,
@@ -88,8 +88,8 @@ export type ScanTabScreensProp = CompositeNavigationProp<
 >;
 
 export type MypageTabScreensProp = CompositeNavigationProp<
-  BottomTabNavigationProp<TabParamList, 'Me'>,
-  NativeStackNavigationProp<MypageStackParamList, 'Me'>
+  BottomTabNavigationProp<TabParamList, 'My'>,
+  NativeStackNavigationProp<MypageStackParamList, 'My'>
 >;
 
 export const RootStack = createNativeStackNavigator<RootStackParamList>();

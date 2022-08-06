@@ -5,27 +5,21 @@ import { MyPageScreenNavigationProp } from '~/types/navigation';
 import s from './styles';
 import { Dimensions } from 'react-native';
 import CustomeTabView from '~/components/TabView';
-
-const FirstRoute = () => (
-  <Box style={{ flex: 1, backgroundColor: '#ff4081' }} />
-);
-
-const SecondRoute = () => (
-  <Box style={{ flex: 1, backgroundColor: '#673ab7' }} />
-);
+import MyLaundry from '~/components/My/Laundry';
+import MyTip from '~/components/My/Tip';
 
 const renderScene = {
-  first: FirstRoute,
-  second: SecondRoute,
+  first: () => <MyLaundry />,
+  second: () => <MyTip />,
 };
 
-const Me = ({
+const My = ({
   navigation,
   route,
 }: MyPageScreenNavigationProp): ReactElement => {
   const routes = [
-    { key: 'first', title: '마이세탁' },
-    { key: 'second', title: '마이꿀팁' },
+    { key: 'first', title: '마이세탁', count: 2 },
+    { key: 'second', title: '마이꿀팁', count: 3 },
   ];
   return (
     <AppLayout styles={s.container}>
@@ -48,4 +42,4 @@ const Me = ({
   );
 };
 
-export default Me;
+export default My;

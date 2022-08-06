@@ -3,6 +3,7 @@ import { StyleProp, ViewStyle, TextStyle } from 'react-native';
 type TabViewsInfo = {
   key: string;
   title: string;
+  count?: number;
 };
 
 type TabViews = {
@@ -15,5 +16,4 @@ export type TabViewProps = {
   tabViews: TabViewsInfo[];
   indicatorStyle?: StyleProp<ViewStyle>;
   tabBarStyle?: StyleProp<ViewStyle>;
-  labelStyle?: StyleProp<TextStyle>;
 };

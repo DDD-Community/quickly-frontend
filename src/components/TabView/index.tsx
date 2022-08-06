@@ -13,7 +13,6 @@ const CustomeTabView = ({
   scenes,
   indicatorStyle,
   tabBarStyle,
-  labelStyle,
 }: t.TabViewProps): ReactElement => {
   const [index, setIndex] = useState(initialIndex);
   const [routes] = useState(tabViews);
@@ -28,13 +27,20 @@ const CustomeTabView = ({
           {...props}
           indicatorStyle={[s.indicator, indicatorStyle]}
           style={[s.tabBar, tabBarStyle]}
-          labelStyle={[s.label, labelStyle]}
-          renderLabel={({ route, focused, color }) => (
-            <HStack space={1}>
-              <Body2>{route.title}</Body2>
-              <Body2>2</Body2>
-            </HStack>
-          )}
+          renderLabel={({ route, focused, color }) => {
+            return (
+              <HStack space={1}>
+                <Body2 style={focused ? s.focuseTitle : s.title}>
+                  {route.title}
+                </Body2>
+                {route.count && (
+                  <Body2 style={focused ? s.focuseCount : s.count}>
+                    {route.count}
+                  </Body2>
+                )}
+              </HStack>
+            );
+          }}
         />
       )}
       showPageIndicator={true}

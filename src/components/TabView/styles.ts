@@ -1,5 +1,5 @@
 import { StyleProp, ViewStyle, TextStyle } from 'react-native';
-import * as c from '~/styles/foundation-color';
+import * as c from '@styles/foundation-color';
 
 const container: StyleProp<ViewStyle> = {
   flex: 1,
@@ -19,13 +19,31 @@ const tabBar: StyleProp<ViewStyle> = {
   paddingBottom: 5,
 };
 
-const label: StyleProp<TextStyle> = {
+const title: StyleProp<TextStyle> = {
+  color: c.CoolGaryColor['300'],
+  fontWeight: 'bold',
+};
+
+const focuseTitle: StyleProp<TextStyle> = {
   color: c.CoolGaryColor['900'],
+  fontWeight: 'bold',
+};
+
+const count: StyleProp<TextStyle> = {
+  ...title,
+};
+
+const focuseCount: StyleProp<TextStyle> = {
+  color: c.PrimaryColor['500'],
+  fontWeight: 'bold',
 };
 
 export default {
   container,
   indicator,
   tabBar,
-  label,
+  title,
+  count,
+  focuseTitle,
+  focuseCount,
 };
