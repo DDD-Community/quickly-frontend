@@ -47,7 +47,6 @@ const Laundry = (): ReactElement => {
         borderWidth={1}
         ratio={{
           base: 1 / 1,
-          // md: 16 / 9,
         }}
       >
         <Center
