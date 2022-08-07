@@ -5,7 +5,7 @@ import SignUp from '@pages/SignUp';
 import { BottomTab, RootStack } from '~/types/navigation';
 import { useSelector } from 'react-redux';
 import { RootState } from '@store/reducer';
-import { HomeScreens, ScanScreens, MeScreens } from './AppNavigation';
+import { HomeScreens, ScanScreens, MyScreens } from './AppNavigation';
 import BottomTabBar from '@components/BottomTabBar';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 
@@ -40,9 +40,9 @@ function AppInner() {
         }}
       />
       <BottomTab.Screen
-        name="Me"
-        component={MeScreens}
-        options={{ headerShown: false, tabBarLabel: 'Me' }}
+        name="My"
+        component={MyScreens}
+        options={{ headerShown: false, tabBarLabel: 'My' }}
       />
     </BottomTab.Navigator>
   ) : (

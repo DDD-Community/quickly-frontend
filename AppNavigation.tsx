@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Home from '@pages/Home';
 import Scan from '@pages/Scan';
-import Me from '@pages/Me';
+import My from '@pages/My';
 import Setting from '@pages/Setting';
 
 import {
@@ -47,7 +47,7 @@ const buildHeader: buildHeaderProps = {
       />
     ),
   },
-  Me: {
+  My: {
     title: '마이페이지',
     left: () => null,
     right: navigation => (
@@ -149,15 +149,16 @@ export const ScanScreens = () => {
   );
 };
 
-export const MeScreens = () => {
+export const MyScreens = () => {
   return (
-    <MypageStack.Navigator initialRouteName="Me">
+    <MypageStack.Navigator initialRouteName="My">
       <MypageStack.Group>
         <MypageStack.Screen
-          name="Me"
-          component={Me}
+          name="My"
+          component={My}
           options={({ navigation, route }) => ({
             ...extendHeaderOptions({ navigation, route }),
+            headerTransparent: true,
           })}
         />
         <MypageStack.Screen

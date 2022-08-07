@@ -94,7 +94,7 @@ const BottomTab = ({
                 ) : (
                   <Home width={28} height={28} />
                 );
-              case 'Me':
+              case 'My':
                 return isFocused ? (
                   <UserFocus width={28} height={28} />
                 ) : (
