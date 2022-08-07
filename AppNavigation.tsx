@@ -1,9 +1,16 @@
 import * as React from 'react';
 import Home from '@pages/Home';
+import Scan from '@pages/Scan';
 import Me from '@pages/Me';
 import Setting from '@pages/Setting';
 
-import { MypageStack, HomeStack, Navigation, Route } from '~/types/navigation';
+import {
+  MypageStack,
+  HomeStack,
+  ScanStack,
+  Navigation,
+  Route,
+} from '~/types/navigation';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { Subhead1 } from '~/components/lds/typography';
 
@@ -28,6 +35,30 @@ const buildHeader: buildHeaderProps = {
       />
     ),
   },
+  Scan: {
+    title: '라벨 스캔',
+    left: () => null,
+    right: navigation => (
+      <Icon
+        name="close"
+        size={20}
+        color="#000"
+        onPress={() => navigation.navigate('Home')}
+      />
+    ),
+  },
+  Me: {
+    title: '마이페이지',
+    left: () => null,
+    right: navigation => (
+      <Icon
+        name="setting"
+        size={20}
+        color="#000"
+        onPress={() => navigation.navigate('Setting')}
+      />
+    ),
+  },
   Setting: {
     title: '설정',
     left: navigation => (
@@ -38,14 +69,7 @@ const buildHeader: buildHeaderProps = {
         onPress={() => navigation.goBack()}
       />
     ),
-    right: navigation => (
-      <Icon
-        name="setting"
-        size={20}
-        color="#000"
-        onPress={() => navigation.navigate('Setting')}
-      />
-    ),
+    right: () => null,
   },
 };
 
@@ -92,6 +116,35 @@ export const HomeScreens = () => {
         />
       </HomeStack.Group>
     </HomeStack.Navigator>
+  );
+};
+
+export const ScanScreens = () => {
+  return (
+    <ScanStack.Navigator initialRouteName="Scan">
+      <ScanStack.Group>
+        <ScanStack.Screen
+          name="Scan"
+          component={Scan}
+          options={({ navigation, route }) => ({
+            ...extendHeaderOptions({
+              navigation,
+              route,
+            }),
+          })}
+        />
+        <ScanStack.Screen
+          name="Setting"
+          component={Setting}
+          options={({ navigation, route }) => ({
+            ...extendHeaderOptions({
+              navigation,
+              route,
+            }),
+          })}
+        />
+      </ScanStack.Group>
+    </ScanStack.Navigator>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect } from 'react';
+import React, { ReactElement, useCallback, useEffect } from 'react';
 import { useAppDispatch } from '@store/index';
 import s from './styles';
 import { UserService } from '~/services/user';
@@ -16,8 +16,12 @@ import {
 } from '@components/lds/typography';
 import AppLayout from '~/components/AppLayout';
 import { BaseButton } from '@components/lds/BaseButton';
+import { HomeScreenNavigationProp } from '~/types/navigation';
 
-const Home: FC = ({}) => {
+const Home = ({
+  navigation,
+  route,
+}: HomeScreenNavigationProp): ReactElement => {
   const dispatch = useAppDispatch();
   const { user } = useAppSelector(state => state.user);
   const getUser = useCallback(

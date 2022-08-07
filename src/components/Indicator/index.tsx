@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React, { ReactElement } from 'react';
 import { ActivityIndicator } from 'react-native';
 import { View } from 'react-native';
 import s from './styles';
 
-const Indicator: FC = () => {
+const Indicator = (): ReactElement => {
   return (
     <View style={s.container}>
       <ActivityIndicator size="large" color="#fff" />

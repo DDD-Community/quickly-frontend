@@ -16,17 +16,24 @@ export type RootStackParamList = {
 
 export type TabParamList = {
   Home: HomeStackParamList;
+  Scan: HomeStackParamList;
   Me: MypageStackParamList;
 };
 
-export type HomeStackParamList = {
-  Home: undefined;
+export type SettingStackParamList = {
   Setting: undefined;
 };
 
-export type MypageStackParamList = {
+export type HomeStackParamList = SettingStackParamList & {
+  Home: undefined;
+};
+
+export type ScanStackParamList = SettingStackParamList & {
+  Scan: undefined;
+};
+
+export type MypageStackParamList = SettingStackParamList & {
   Me: undefined;
-  Setting: undefined;
 };
 
 export type SignInScreenNavigationProp = NativeStackScreenProps<
@@ -44,21 +51,40 @@ export type HomeScreenNavigationProp = NativeStackScreenProps<
   'Home'
 >;
 
+export type ScanScreenNavigationProp = NativeStackScreenProps<
+  ScanStackParamList,
+  'Scan'
+>;
+
 export type MyPageScreenNavigationProp = NativeStackScreenProps<
   MypageStackParamList,
   'Me'
 >;
+export type SettingScreenNavigationProp = NativeStackScreenProps<
+  SettingStackParamList,
+  'Setting'
+>;
 
-export type Navigation = HomeScreenNavigationProp['navigation'] &
+export type Navigation = SettingScreenNavigationProp['navigation'] &
+  HomeScreenNavigationProp['navigation'] &
+  ScanScreenNavigationProp['navigation'] &
   MyPageScreenNavigationProp['navigation'];
 
 export type Route = NativeStackScreenProps<
-  HomeScreenNavigationProp & MyPageScreenNavigationProp
+  SettingScreenNavigationProp &
+    HomeScreenNavigationProp &
+    ScanScreenNavigationProp &
+    MyPageScreenNavigationProp
 >['route'];
 
 export type HomeTabScreensProp = CompositeNavigationProp<
   BottomTabNavigationProp<TabParamList, 'Home'>,
   NativeStackNavigationProp<HomeStackParamList, 'Home'>
+>;
+
+export type ScanTabScreensProp = CompositeNavigationProp<
+  BottomTabNavigationProp<TabParamList, 'Scan'>,
+  NativeStackNavigationProp<ScanStackParamList, 'Scan'>
 >;
 
 export type MypageTabScreensProp = CompositeNavigationProp<
@@ -70,4 +96,5 @@ export const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 export const BottomTab = createBottomTabNavigator<TabParamList>();
 export const HomeStack = createNativeStackNavigator<HomeStackParamList>();
+export const ScanStack = createNativeStackNavigator<ScanStackParamList>();
 export const MypageStack = createNativeStackNavigator<MypageStackParamList>();
