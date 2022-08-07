@@ -45,7 +45,6 @@ const BottomTab = ({
   descriptors,
   navigation,
 }: BottomTabBarProps): ReactElement => {
-  console.log(state.index);
   return (
     <View
       style={{
