@@ -4,7 +4,7 @@ import { MyPageScreenNavigationProp } from '~/types/navigation';
 import s from './styles';
 import { Dimensions, StatusBar } from 'react-native';
 import CustomeTabView from '@components/TabView';
-import MyLaundries from '@components/My/Laundries';
+import MyLaundries, { dummyMyLaundries } from '@components/My/Laundries';
 import MyTips from '@components/My/Tips';
 import { Subhead1 } from '@components/lds/typography';
 import GradientWrapper from '@components/GradientWrapper';
@@ -14,14 +14,12 @@ const renderScene = {
   second: () => <MyTips />,
 };
 
-const My = ({
+const MyLaundry = ({
   navigation,
   route,
 }: MyPageScreenNavigationProp): ReactElement => {
-  const routes = [
-    { key: 'first', title: '마이세탁', count: 2 },
-    { key: 'second', title: '마이꿀팁', count: 3 },
-  ];
+  const { id } = route?.params;
+
   return (
     <GradientWrapper
       angle={360}
@@ -33,22 +31,18 @@ const My = ({
     >
       <StatusBar translucent backgroundColor={'transparent'} />
       <Center flex={1}>
-        <Subhead1 style={s.userName}>빨래됴하</Subhead1>
+        <Subhead1 style={s.userName}>{dummyMyLaundries[id - 1].title}</Subhead1>
       </Center>
-      <Box
+      {/* <Box
         flex={2}
         rounded={'2xl'}
         width={Dimensions.get('window').width}
         backgroundColor="white"
       >
-        <CustomeTabView
-          initialIndex={0}
-          scenes={renderScene}
-          tabViews={routes}
-        />
-      </Box>
+
+      </Box> */}
     </GradientWrapper>
   );
 };
 
-export default My;
+export default MyLaundry;
