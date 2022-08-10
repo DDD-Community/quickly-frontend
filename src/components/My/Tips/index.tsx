@@ -3,7 +3,7 @@ import React, { ReactElement } from 'react';
 import { Text } from 'react-native';
 import s from './styles';
 
-const Tip = (): ReactElement => {
+const Tips = (): ReactElement => {
   return (
     <HStack style={s.container}>
       <Text>Tip</Text>
@@ -11,4 +11,4 @@ const Tip = (): ReactElement => {
   );
 };
 
-export default Tip;
+export default Tips;
