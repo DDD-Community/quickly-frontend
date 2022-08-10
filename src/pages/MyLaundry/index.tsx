@@ -1,18 +1,11 @@
-import { Box, Center } from 'native-base';
+import { Center } from 'native-base';
 import React, { ReactElement } from 'react';
 import { MyPageScreenNavigationProp } from '~/types/navigation';
 import s from './styles';
-import { Dimensions, StatusBar } from 'react-native';
-import CustomeTabView from '@components/TabView';
-import MyLaundries, { dummyMyLaundries } from '@components/My/Laundries';
-import MyTips from '@components/My/Tips';
+import { StatusBar } from 'react-native';
+import { dummyMyLaundries } from '@components/My/Laundries';
 import { Subhead1 } from '@components/lds/typography';
 import GradientWrapper from '@components/GradientWrapper';
-
-const renderScene = {
-  first: () => <MyLaundries />,
-  second: () => <MyTips />,
-};
 
 const MyLaundry = ({
   navigation,
@@ -33,14 +26,6 @@ const MyLaundry = ({
       <Center flex={1}>
         <Subhead1 style={s.userName}>{dummyMyLaundries[id - 1].title}</Subhead1>
       </Center>
-      {/* <Box
-        flex={2}
-        rounded={'2xl'}
-        width={Dimensions.get('window').width}
-        backgroundColor="white"
-      >
-
-      </Box> */}
     </GradientWrapper>
   );
 };
