@@ -1,18 +1,17 @@
 import { Box, Center } from 'native-base';
 import React, { ReactElement } from 'react';
-import AppLayout from '~/components/AppLayout';
 import { MyPageScreenNavigationProp } from '~/types/navigation';
 import s from './styles';
 import { Dimensions, StatusBar } from 'react-native';
-import CustomeTabView from '~/components/TabView';
-import MyLaundry from '~/components/My/Laundry';
-import MyTip from '~/components/My/Tip';
-import { Subhead1 } from '~/components/lds/typography';
-import GradientWrapper from '~/components/GradientWrapper';
+import CustomeTabView from '@components/TabView';
+import MyLaundries from '@components/My/Laundries';
+import MyTips from '@components/My/Tips';
+import { Subhead1 } from '@components/lds/typography';
+import GradientWrapper from '@components/GradientWrapper';
 
 const renderScene = {
-  first: () => <MyLaundry />,
-  second: () => <MyTip />,
+  first: () => <MyLaundries />,
+  second: () => <MyTips />,
 };
 
 const My = ({

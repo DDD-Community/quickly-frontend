@@ -1,12 +1,25 @@
 import { AspectRatio, Badge, Box, Center, FlatList, Image } from 'native-base';
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useCallback } from 'react';
 import { Dimensions, TouchableOpacity } from 'react-native';
 import s from './styles';
 import * as c from '@styles/foundation-color';
 import Folder from '@assets/images/folder.png';
 import { Body1, Body2, Caption2 } from '@components/lds/typography';
+import { useNavigation } from '@react-navigation/native';
+import {
+  MyLaundryTabScreensProp,
+  MyPageScreenNavigationProp,
+  MypageTabScreensProp,
+} from '~/types/navigation';
 
-const dummyMyLaundry = [
+type dummyMyLaundriesProps = {
+  id: number;
+  tag: string;
+  title: string;
+  date: string;
+};
+
+export const dummyMyLaundries: dummyMyLaundriesProps[] = [
   {
     id: 1,
     tag: '티셔츠',
@@ -33,7 +46,19 @@ const dummyMyLaundry = [
   },
 ];
 
-const Laundry = (): ReactElement => {
+const tag = '[My/Laundries]';
+
+const Laundries = (): ReactElement => {
+  const navigation = useNavigation<MyPageScreenNavigationProp['navigation']>();
+
+  const naviageToMyLaundry = useCallback(
+    (id: number): void => {
+      console.log(tag, 'naviageToMyLaundry');
+      navigation.navigate('MyLaundry', { id });
+    },
+    [navigation],
+  );
+
   const renderItem = ({
     item,
     index,
@@ -41,7 +66,7 @@ const Laundry = (): ReactElement => {
     item: any;
     index: number;
   }): ReactElement => (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => naviageToMyLaundry(item.id)}>
       <AspectRatio
         width={Dimensions.get('window').width / 2}
         borderWidth={1}
@@ -92,9 +117,9 @@ const Laundry = (): ReactElement => {
     </TouchableOpacity>
   );
 
-  return dummyMyLaundry.length ? (
+  return dummyMyLaundries.length ? (
     <FlatList
-      data={dummyMyLaundry}
+      data={dummyMyLaundries}
       pagingEnabled={true}
       numColumns={2}
       keyExtractor={item => item.id.toString()}
@@ -110,4 +135,4 @@ const Laundry = (): ReactElement => {
   );
 };
 
-export default Laundry;
+export default Laundries;

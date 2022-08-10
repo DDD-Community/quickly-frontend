@@ -34,6 +34,9 @@ export type ScanStackParamList = SettingStackParamList & {
 
 export type MypageStackParamList = SettingStackParamList & {
   My: undefined;
+  MyLaundry: {
+    id: number;
+  };
 };
 
 export type SignInScreenNavigationProp = NativeStackScreenProps<
@@ -58,8 +61,14 @@ export type ScanScreenNavigationProp = NativeStackScreenProps<
 
 export type MyPageScreenNavigationProp = NativeStackScreenProps<
   MypageStackParamList,
+  'MyLaundry'
+>;
+
+export type MyLaundryScreenNavigationProp = NativeStackScreenProps<
+  MypageStackParamList,
   'My'
 >;
+
 export type SettingScreenNavigationProp = NativeStackScreenProps<
   SettingStackParamList,
   'Setting'
