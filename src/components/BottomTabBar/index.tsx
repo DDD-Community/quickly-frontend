@@ -46,7 +46,13 @@ const BottomTab = ({
   navigation,
 }: BottomTabBarProps): ReactElement => {
   return (
-    <View style={{ ...s.container, width }}>
+    <View
+      style={{
+        ...s.container,
+        width,
+        display: state.index === 1 ? 'none' : 'flex',
+      }}
+    >
       <TabShape />
       <View style={s.innerWrapper}>
         {state.routes.map((route, index) => {
