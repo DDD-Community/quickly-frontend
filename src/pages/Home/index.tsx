@@ -5,13 +5,33 @@ import { Box, HStack, VStack } from 'native-base';
 import { CategoryBox } from '@components/Home/CategoryBox';
 import { SectionTitle } from '@components/Home/SectionTitle';
 import { TipCard } from '@components/Home/TipCard';
+import { SearchBar } from '@components/Home/SearchBar';
 
 const Home: FC = ({}) => {
   return (
     <SafeAreaView style={s.container}>
       <ScrollView>
-        <VStack>
-          <Box style={{ height: 300, backgroundColor: 'gray' }} />
+        <VStack space="18px">
+          <Box
+            flexDir="column"
+            justifyContent="flex-end"
+            style={{
+              paddingHorizontal: 20,
+              paddingBottom: 24,
+              height: 300,
+              backgroundColor: 'gray',
+            }}
+          >
+            <Box
+              style={{
+                backgroundColor: 'white',
+                borderRadius: 8,
+              }}
+            >
+              <SearchBar />
+            </Box>
+          </Box>
+
           <Box
             bg="white"
             style={{
