@@ -6,10 +6,11 @@ import Search from '@assets/images/common/search.svg';
 export const SearchBar = () => {
   return (
     <Input
+      variant="filled"
       placeholder="세탁물을 검색해보세요"
       leftElement={<Icon as={<WithLocalSvg asset={Search} />} ml={3} />}
       h="48px"
-      style={{ backgroundColor: 'white' }}
+      backgroundColor="white"
     />
   );
 };

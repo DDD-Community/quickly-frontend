@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import { SafeAreaView, ScrollView } from 'react-native';
+import React from 'react';
+import { ImageBackground, SafeAreaView, ScrollView } from 'react-native';
 import s from './styles';
 import { Box, HStack, VStack } from 'native-base';
 import { CategoryBox } from '@components/Home/CategoryBox';
@@ -7,41 +7,27 @@ import { SectionTitle } from '@components/Home/SectionTitle';
 import { TipCard } from '@components/Home/TipCard';
 import { SearchBar } from '@components/Home/SearchBar';
 
-const Home: FC = ({}) => {
+export const Home = () => {
   return (
     <SafeAreaView style={s.container}>
-      <ScrollView>
+      <ScrollView style={s.scrollView}>
         <VStack space="18px">
-          <Box
-            flexDir="column"
-            justifyContent="flex-end"
-            style={{
-              paddingHorizontal: 20,
-              paddingBottom: 24,
-              height: 300,
-              backgroundColor: 'gray',
-            }}
+          <ImageBackground
+            source={require('@assets/images/Home/home_bg.png')}
+            style={s.imageBackground}
           >
             <Box
-              style={{
-                backgroundColor: 'white',
-                borderRadius: 8,
-              }}
+              flexDir="column"
+              justifyContent="flex-end"
+              style={s.topContentWrapper}
             >
-              <SearchBar />
+              <Box style={s.searchBarWrapper}>
+                <SearchBar />
+              </Box>
             </Box>
-          </Box>
+          </ImageBackground>
 
-          <Box
-            bg="white"
-            style={{
-              height: '100%',
-              borderTopLeftRadius: 20,
-              borderTopRightRadius: 20,
-              paddingTop: 28,
-              paddingHorizontal: 20,
-            }}
-          >
+          <Box bg="white" style={s.laundryContentWrapper}>
             <SectionTitle title="세탁방법 찾기" action={() => {}} />
 
             <HStack space="16px" w="100%" mb="32px">
@@ -74,5 +60,3 @@ const Home: FC = ({}) => {
     </SafeAreaView>
   );
 };
-
-export default Home;
