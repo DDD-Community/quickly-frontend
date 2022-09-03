@@ -9,6 +9,7 @@ import Error from '~/components/Error';
 import { NativeBaseProvider } from 'native-base';
 
 const navigationRef: any = React.createRef();
+
 export const navigate = () => {
   return {
     navigate: (name: any, params: any) => {
